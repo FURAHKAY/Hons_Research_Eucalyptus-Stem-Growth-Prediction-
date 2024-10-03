@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lc0hXspAAAAAGO6W8lxP3MverYXWco4Qts3n8TG"></script> -->
+    <title>React App</title>
+  </head>
+  <body>
+    <title>React App</title>
+    <!-- <script>
+        function onClick(e) {
+          e.preventDefault();
+          grecaptcha.enterprise.ready(async () => {
+            const token = await grecaptcha.enterprise.execute('6Lc0hXspAAAAAGO6W8lxP3MverYXWco4Qts3n8TG', {action: 'LOGIN'});
+          });
+        }
+      </script> -->
+  </body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>React App with Google reCAPTCHA</title>
+  <!-- <script src="https://www.google.com/recaptcha/enterprise.js?render=6Lc0hXspAAAAAGO6W8lxP3MverYXWco4Qts3n8TG"></script> -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+  <h1>Example Form with Google reCAPTCHA</h1>
+  <form id="myForm" action="http://httpbin.org/post" method="POST">
+    <!-- Your form fields here -->
+    <!-- <button type="submit" onclick="onSubmit(event)">Submit</button> -->
+    <button class="g-recaptcha" 
+    data-sitekey="6LedKoIpAAAAADn1EUdq00PSHmbuyajJE6kb4KxN" 
+    onclick="onSubmit(event)">Submit C</button>  
+  </form>
+
+  <script>
+    function onSubmit(event) {
+      event.preventDefault();
+      document.getElementById("myForm").submit();
+    }
+  </script>
+  <!-- <script>
+    function onSubmit(event) {
+      event.preventDefault();
+      
+      // Execute reCAPTCHA
+      grecaptcha.enterprise.ready(async () => {
+        try {
+          const token = await grecaptcha.enterprise.execute('6Lc0hXspAAAAAGO6W8lxP3MverYXWco4Qts3n8TG', { action: 'form_submission' });
+
+          // Append the token to the form data
+          const form = document.getElementById('myForm');
+          const formData = new FormData(form);
+          formData.append('recaptchaToken', token);
+
+          // Submit the form with the reCAPTCHA token
+          fetch('/submit-form', {
+            method: 'POST',
+            body: formData
+          })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+            // Handle response from the server
+          })
+          .catch(error => {
+            console.error('Error submitting form:', error);
+            // Handle error
+          });
+        } catch (error) {
+          console.error('Error executing reCAPTCHA:', error);
+          // Handle error
+        }
+      });
+    }
+  </script> -->
+</body>
+</html>
